@@ -2,19 +2,33 @@ local filterList = {
 	"gold",
 	"cheap",
 	"wts",
+	"safe",
+	"usd"
 }
+
+--[[
+local function ContainsWord(str, word)
+	local arr = string.split(str, " ")
+
+	for _, val in pairs(arr) do
+		if val:lower() == word:lower() then
+			print(val:lower().." = "..word:lower())
+			return true
+		else
+			print(val:lower().." ~= "..word:lower())
+		end
+	end
+
+	return false
+end
+]]
 
 local function FilterGoldSeller(self, event, msg, sender, ...)
 	local score = 0
 
-	--[[
-	if msg:lower():match("cheap") and msg:lower():match("gold") and msg:lower():match("wts") then
-		return true
-	end
-	]]
-
-	foreach _, keyword in pairs(filterList) do
-		if msg:lower():match(keyword) then
+	for _, keyword in pairs(filterList) do
+		--if msg:lower():match("%f[%a]"..keyword.."%f[%A]") ~= nil then
+		if msg:lower():match("[^%a]" .. keyword .. "[^%a]") or msg:lower():match("^" .. keyword .. "[^%a]") or  msg:lower():match("[^%a]" .. keyword .. "$") or msg:lower() == keyword then
 			score = score + 1
 		end
 	end
@@ -37,3 +51,4 @@ ChatFrame_AddMessageEventFilter("CHAT_MSG_PARTY", FilterGoldSeller)
 ChatFrame_AddMessageEventFilter("CHAT_MSG_PARTY_LEADER", FilterGoldSeller)
 ChatFrame_AddMessageEventFilter("CHAT_MSG_INSTANCE_CHAT", FilterGoldSeller)
 ChatFrame_AddMessageEventFilter("CHAT_MSG_INSTANCE_CHAT_LEADER", FilterGoldSeller)
+ChatFrame_AddMessageEventFilter("CHAT_MSG_WHISPER", FilterGoldSeller)
