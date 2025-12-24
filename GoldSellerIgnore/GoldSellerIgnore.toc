@@ -1,0 +1,5 @@
+## Interface: 30300
+## Author: SoonBeSteak
+## Title: Gold Seller Ignore
+## Notes: Hide whispers and global chat messages from gold sellers.
+Core.lua
