@@ -3,7 +3,8 @@ local filterList = {
 	"cheap",
 	"wts",
 	"safe",
-	"usd"
+	"usd",
+	"mmotradinghub.com"
 }
 
 --[[
