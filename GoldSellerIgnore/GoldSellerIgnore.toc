@@ -2,4 +2,6 @@
 ## Author: SoonBeSteak
 ## Title: Gold Seller Ignore
 ## Notes: Hide whispers and global chat messages from gold sellers.
+## Version: 1.0.0
+## Author: SoonBeSteak
 Core.lua
