@@ -4,7 +4,7 @@ local filterList = {
 	"wts",
 	"safe",
 	"usd",
-	"mmotradinghub.com"
+	"mmotradinghub"
 }
 
 --[[
@@ -29,7 +29,8 @@ local function FilterGoldSeller(self, event, msg, sender, ...)
 
 	for _, keyword in pairs(filterList) do
 		--if msg:lower():match("%f[%a]"..keyword.."%f[%A]") ~= nil then
-		if msg:lower():match("[^%a]" .. keyword .. "[^%a]") or msg:lower():match("^" .. keyword .. "[^%a]") or  msg:lower():match("[^%a]" .. keyword .. "$") or msg:lower() == keyword then
+		--if msg:lower():match("[^%a]" .. keyword .. "[^%a]") or msg:lower():match("^" .. keyword .. "[^%a]") or  msg:lower():match("[^%a]" .. keyword .. "$") or msg:lower() == keyword then
+		if msg:lower():find(keyword) then
 			score = score + 1
 		end
 	end
