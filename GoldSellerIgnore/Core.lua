@@ -4,7 +4,8 @@ local filterList = {
 	"wts",
 	"safe",
 	"usd",
-	"mmotradinghub"
+	"mmotradinghub",
+	"www.nost100.com"
 }
 
 --[[
